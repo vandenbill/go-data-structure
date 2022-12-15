@@ -1,5 +1,12 @@
 package main
 
+/*
+	not the best algorithm of course, but i still trying to :).
+	Linked list link data or node to the other by keep the addres of next
+	data (for single linked list) or next and previous data addres for
+	(double linked list), used for example by web server like nginx when
+	receive a request and message broker like rabbitmq or redis pub/sub
+*/
 import "fmt"
 
 type Node struct {
