@@ -6,6 +6,9 @@ package main
 	data (for single linked list) or next and previous data addres for
 	(double linked list), used for example by web server like nginx when
 	receive a request and message broker like rabbitmq or redis pub/sub
+	the time complexity to add a value in the begining of linkedlist is o(1)
+	compared to array that has a o(n) time complexity because array has to
+	copy all of the data to a new array
 */
 import "fmt"
 
@@ -56,6 +59,10 @@ func (l *Linkedlist) printSequenceByValue(value string) {
 }
 
 func (l *Linkedlist) deleteByValue(value string) {
+	if l.length == 0 {
+		return
+	}
+
 	if l.head.value == value {
 		l.head = l.head.next
 		l.length--
