@@ -1,6 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
+
+// TODO represented stack as a linkedlist
 
 // Stack data structure / LIFO (last in first out)
 type Stack struct {
@@ -22,6 +27,7 @@ func (s *Stack) Pop() int {
 }
 
 func main() {
+	math.Sqrt(float64(10))
 	stack := Stack{}
 	stack.Push(1)
 	stack.Push(2)
