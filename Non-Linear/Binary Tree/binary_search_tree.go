@@ -4,20 +4,22 @@ import "fmt"
 
 /*
 	BINARY SEARCH TREE
-	binary search tree is data structure that hace advantages
-	in speed of search, the time complexity of searching in this
-	data structure is o(h), h is height of the tree, and h have
+	binary search tree is data structure that have advantages
+	in speed of search, order to organize node in BST, left child
+	of node must be less than the parent node, and right child
+	is greater than the parent node the time complexity of searching 
+	in this	data structure is o(h), h is height of the tree, and h have
 	a corelation with n which is log n, so time complexity
 	also can describe as o(log n)
 */
 
 /*
-	the node contain 3 part, the value, addres of left and right child
+	the node contain 3 part, the Key, addres of left and right child
 */
 
 // node
 type Node struct {
-	Value      int
+	Key        int
 	LeftChild  *Node
 	RightChild *Node
 }
@@ -29,15 +31,15 @@ type Node struct {
 */
 // insert data
 func (n *Node) Insert(k int) {
-	if n.Value > k {
+	if n.Key > k {
 		if n.LeftChild == nil {
-			n.LeftChild = &Node{Value: k}
+			n.LeftChild = &Node{Key: k}
 		} else {
 			n.Insert(k)
 		}
-	} else if n.Value < k {
+	} else if n.Key < k {
 		if n.RightChild == nil {
-			n.RightChild = &Node{Value: k}
+			n.RightChild = &Node{Key: k}
 		} else {
 			n.Insert(k)
 		}
@@ -56,16 +58,16 @@ func (n *Node) Search(k int) bool {
 		return false
 	}
 
-	if n.Value > k {
+	if n.Key > k {
 		n.LeftChild.Search(k)
-	} else if n.Value < k {
+	} else if n.Key < k {
 		n.RightChild.Search(k)
 	}
 	return true
 }
 
 func main() {
-	node := &Node{Value: 10}
+	node := &Node{Key: 10}
 	node.Insert(10)
 	node.Insert(100)
 	fmt.Println(node.Search(100))
