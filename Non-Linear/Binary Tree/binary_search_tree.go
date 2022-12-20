@@ -9,10 +9,6 @@ import "fmt"
 	data structure is o(h), h is height of the tree, and h have
 	a corelation with n which is log n, so time complexity
 	also can describe as o(log n)
-
-	but this data structure are also immutable, it can be mutable but
-	cost a lot of time since we have to re-organize the tree
-	after we remove the data
 */
 
 /*
