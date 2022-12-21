@@ -24,6 +24,12 @@ func (h *Heap) Insert(v int) {
 	h.HeapifyUp(len(h.arr) - 1)
 }
 
+/*
+	extracting data from heap is take the index 0 of heap
+	or the biggest one, after the data taken, index 0
+	is fullfil by last value, after that we ahve to re
+	organize he tree by heapifying down that tree
+*/
 func (h *Heap) Extract() int {
 	if len(h.arr) == 0 {
 		fmt.Println("cant extract bcs lenght is 0")
@@ -37,6 +43,12 @@ func (h *Heap) Extract() int {
 	return r
 }
 
+/*
+	this proces mean we compare data that inserted in the last index
+	with the parent value, if the child data is larger, we
+	swap it with the parent and so on until the last index
+	have the right place
+*/
 func (h *Heap) HeapifyUp(i int) {
 	for h.arr[h.parent(i)] < h.arr[i] {
 		h.swap(h.parent(i), i)
@@ -44,6 +56,12 @@ func (h *Heap) HeapifyUp(i int) {
 	}
 }
 
+/*
+	this proces mean we compare the index 0 data
+	(actually this is the last index data that we swap after
+	extracting the heap) with the child and so on after
+	the data has the right place
+*/
 func (h *Heap) HeapifyDown(i int) {
 	lc, rc := h.leftChild(i), h.rightChild(i)
 	compr := 0
